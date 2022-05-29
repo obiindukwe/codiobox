@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Single Page App</title>
+		<link type="text/css" rel="stylesheet" href="/style/main.css">
+		<script type="module" src="/navigation.js"></script>
+	</head>
+	<body>
+		<aside class="hidden"><p></p></aside>
+		<header>
+			<h1>Collection Tracker</h1>
+			<p>&nbsp;</p>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="/home">Home</a></li>
+				<li><a href="/register">Register</a></li>
+				<li><a href="/foo">Foo</a></li>
+				<li><a href="/login">Log in</a></li>
+				<li><a href="/logout">Log out</a></li>
+				<li><a href="/send_parcel">send_parcel</a></li>
+			</ul>
+		</nav>
+		<main>
+			<!-- page content goes here -->
+		</main>
+		<footer>
+			<p>&nbsp;</p>
+		</footer>
+			<template id="home">
+				<p><label for="postcode">tracking_number</label><br /><input type=text name="tracking_number" placeholder="" /></p>
+				<table>
+					<tr>
+						<th>recipient</th>
+						<th>dest_postcode</th>
+						<th>parcel_status</th>
+						<th></th>
+					</tr>
+					<tr>
+						<td id="x" name="recipient"></td>
+						<td id="w" name="dest-postcode"> </td>
+						<td id="z" name="parcel_status"> </td>
+						<td id="t" type="text" value=currentDateTime> </td>
+
+					</tr>
+
+
+
+				</table>
+	</template>
+	<template id="login">
+		<form name="login">
+			<p><label for="email">Username</label><br /><input type="text" name="user" placeholder="username" /></p>
+			<p><label for="pass">Password</label><br /><input type="password" name="pass" placeholder="password" /></p>
+			<p><button type="submit">Log in</button></p>
+		</form>
+	</template>
+	<template id="register">
+		<form name="register">
+			<p><label for="name">Username</label><br /><input type="text" name="user" placeholder="full name" /></p>
+			<p><label for="pass">Password</label><br /><input type="password" name="pass" placeholder="password" /></p>
+			<p><button type="submit">Create account</button></p>
+		</form>
+	</template>
+	<template id="logout">
+			<p>Do you want to log out?</p>
+			<p><button>OK</button><button>Cancel</button></p>
+	</template>
+	<template id="foo">
+		<h2>Uploading File Demo</h2>
+		<form name="upload" method="post">
+			<p><label for="pass">Choose a file</label><br /><input type="file" name="file" /></p>
+			<p><button type="submit">Upload</button></p>
+		</form>
+		<h2>Useful Data</h2>
+		<p>You can pass data to a page using different parts of the url:</p>
+		<p>Try <a href="/foo/bar?number=42#12345">this link</a> to see an example.</p>
+		<ul>
+		<li id="href">href</li>
+		<li id="pathname">path</li>
+		<li id="search">search</li>
+		<li id="hash">hash</li>
+		</ul>
+		<p>This page is a placeholder to help you understand how to access data in the URL and upload a file to a REST API. Once you understand how it works it should be removed from your project.</p>
+	</template>
+	<!-- <template id="send_parcel">
+		<section>
+			<h2>details of the parcel </h2>
+			<p><label for="postcode">sender_postcode</label><br /><input type="text" name="sender_postcode" placeholder="postcode" /></p>
+		</section>
+	</template> -->
+
+    <template id="send_parcel">
+        <form name="send">
+			<div style="margin-bottom: 10px;">
+				<label for="sender-postcode">Sender Postcode</label><br />
+				<input type="text" id="sender-postcode" placeholder="Enter postcode" name="sender_postcode" required />
+			</div>
+			<div style="margin-bottom: 10px;">
+				<label for="dest-postcode">Dest postcode</label><br />
+				<input type="text" id="dest-postcode" placeholder="Enter postcode" name="dest_postcode" required />
+			</div>
+			<div style="margin-bottom: 10px;">
+				<label for="weight">Weight(kg)</label><br />
+				<input type="range" min="0" max="20" id="weight" placeholder="Enter postcode" name="weight" required />
+			</div>
+			<div style="margin-bottom: 10px;">
+				<label for="recipient">Recipient name</label><br />
+				<input type="text" id="recipient" placeholder="Recipient name" name="recipient" required />
+			</div>
+			<div style="margin-bottom: 10px;">
+				<label for="address">Recipient Address</label><br />
+				<textarea style="height: 100px; width: 200px;" type="text" id="address" rows="4" cols="5" placeholder="Enter address" name="address" required ></textarea>
+			</div>
+			<div style="margin-bottom: 10px;">
+				<button>
+					submit
+				</button>
+			</div>
+			
+    
+		</form>
+
+    </template>
+	</body>
+</html>
